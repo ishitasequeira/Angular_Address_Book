@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+
+$fontfamily : "Arial, Helvetica Neue, Helvetica, sans-serif";
+$color-1: #4173b1;
+$color-2: #37598a;
+$color-3: #fff;
+body { 
+    font-family: $fontfamily; 
+    font-size: 18px;
+    
+}
+
+:focus {outline: #9cc9cb;}
+
+* {
+    box-sizing: border-box;
+    transition:.25s ease-in-out;
+  }

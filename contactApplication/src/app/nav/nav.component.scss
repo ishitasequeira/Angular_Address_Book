@@ -1,0 +1,33 @@
+$color-1: #4173b1;
+$color-2: #37598a;
+$color-3: #fff;
+
+.element-header {
+    background: $color-1;
+    border: 1px solid $color-2;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+    height: 58px;
+    padding: 16px; 
+    position: relative;
+    z-index: 2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    h2 {
+        color: $color-3;
+        font-weight: bold;
+        font-size: 25px;
+        text-shadow: 0 1px 0 #37598a;
+        position: absolute;
+        margin: 0;
+      }
+      button{
+          border-radius: 10%;
+          background-color: rgba(255,255,255,0.2);
+      }
+    }
+
+    .pull-right {
+        float: right; 
+        position: relative;
+      }

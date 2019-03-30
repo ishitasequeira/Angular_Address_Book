@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ListComponent } from './list/list.component';
-import { IndexComponent } from './index/index.component';
 import { AddContactModalComponent } from './add-contact-modal/add-contact-modal.component';
 import { ViewContactModalComponent } from './view-contact-modal/view-contact-modal.component';
 
@@ -14,7 +13,6 @@ import { ViewContactModalComponent } from './view-contact-modal/view-contact-mod
     AppComponent,
     NavComponent,
     ListComponent,
-    IndexComponent,
     AddContactModalComponent,
     ViewContactModalComponent
   ],
