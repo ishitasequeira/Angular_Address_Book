@@ -1,6 +1,6 @@
 //modal
 .modal {
-    // display: none;
+     //display: none;
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
@@ -70,6 +70,8 @@
                 font-size: inherit;
                 text-align: inherit;
             }
+            
+            
         }
     }
 }
@@ -88,4 +90,8 @@ to {top:0; opacity:1}
 @keyframes animatetop {
 from {top:-300px; opacity:0}
 to {top:0; opacity:1}
+}
+
+#cancel{
+    margin-left: 50;
 }

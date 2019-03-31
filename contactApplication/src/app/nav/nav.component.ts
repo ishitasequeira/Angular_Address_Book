@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppConstants } from '../common/app-constant';
 
 @Component({
   selector: 'app-nav',
@@ -11,5 +12,8 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  addContact(){
+    AppConstants.modalAddDisply = true;
+    console.log(AppConstants.modalAddDisply);
+  }
 }
