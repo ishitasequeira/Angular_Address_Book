@@ -2,6 +2,7 @@
 .modal {
      //display: none;
     /* Hidden by default */
+    
     position: fixed;
     /* Stay in place */
     z-index: 1;
@@ -44,6 +45,7 @@
         }
 
         .modal-header {
+            overflow: hidden;
             padding: 2px 16px;
             background-color: #0d48df;
             color: white;
@@ -67,6 +69,7 @@
             }
 
             .viewcontact {
+                overflow: hidden;
                 font-size: inherit;
                 text-align: inherit;
             }
@@ -92,6 +95,6 @@ from {top:-300px; opacity:0}
 to {top:0; opacity:1}
 }
 
-#cancel{
-    margin-left: 50;
-}
+// #cancel{
+//     margin-left: 50;
+// }

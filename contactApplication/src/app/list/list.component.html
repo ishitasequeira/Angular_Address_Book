@@ -1,5 +1,8 @@
 <div class="element-content" id="element-content">
   <ul class="list" id="list">
+    <li *ngFor="let contact of contactsList">
+      <div id="{{contact._id}}" (click)="displayCard($event)">{{contact.FirstName}} {{contact.LastName}}</div>
+    </li>
   </ul>
   <div class="element-sidebar">
     <a href="#">#</a>
