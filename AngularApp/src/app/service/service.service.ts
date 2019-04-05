@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
+	contact: Contact;
   contactResource: string;
 	contactResourceURL: string;
   constructor(private http: HttpClient) {

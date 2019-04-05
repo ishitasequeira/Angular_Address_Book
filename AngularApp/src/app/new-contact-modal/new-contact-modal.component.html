@@ -9,17 +9,17 @@
         <form>
           <div class="left">
               <label>First Name : </label>
-              <input class="addcontact" name="first_name" [attr.name]="contact.FirstName" [(ngModel)]="contact.FirstName" type="text"><br><br>
+              <input class="addcontact" name="first_name"  [(ngModel)]="contact.FirstName" type="text"><br><br>
               <label>Contact No : </label> 
-              <input class="addcontact" name="phoneNumber" [attr.name]="contact.phoneNumber" [(ngModel)]="contact.phoneNumber" type="text"><br><br>
+              <input class="addcontact" name="phoneNumber"  [(ngModel)]="contact.phoneNumber" type="text"><br><br>
           </div>
           <div class="right">
               <label>Last Name : </label>
-              <input class="addcontact" name="last_name" [(ngModel)]="contact.LastName" [attr.name]="contact.LastName" type="text"><br><br>
+              <input class="addcontact" name="last_name" [(ngModel)]="contact.LastName" type="text"><br><br>
           </div>
           <div>
               <label>EmailId: </label>
-              <input class="addcontact" name="email" type="email" [(ngModel)]="contact.email" [attr.name]="contact.email" size="30"><br><br>
+              <input class="addcontact" name="email" type="email" [(ngModel)]="contact.email" size="30"><br><br>
 
               <input type="button" id="submit" value="Submit" (click)="validateAndAddContact()">&nbsp;&nbsp;
               <input class = "pull-right" type="button" id="cancel" value="Cancel" (click)="closeModal('addContactModal')">

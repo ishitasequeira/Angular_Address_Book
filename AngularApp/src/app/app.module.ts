@@ -23,7 +23,7 @@ import { ViewContactModalComponent } from './view-contact-modal/view-contact-mod
     FormsModule,
     HttpClientModule
   ],
-  providers: [ServiceService],
+  providers: [ServiceService, ViewContactModalComponent],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
