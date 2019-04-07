@@ -1,4 +1,4 @@
-## Assignment 9: Angular Address book/Contact app. Convert your assignment 7 to an angular app. Your app should use the nodejs server created on assignment 8.
+## Assignment 9: Angular Address book/Contact app using Angular7
 
 # Technologies :
   Angular 7
