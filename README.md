@@ -10,6 +10,7 @@
 4. Run npm install and also run npm @angular/cli 
 5. Build the application, default build mode is production. 
 
-## To run the application
-1. Run application server using "ng serve"
-2. You can launch the applcation at http://localhost:4200/
+## To build and run the application
+1. Run ng build to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a        production build.
+2. Run application server using "ng serve"
+3. You can launch the applcation at http://localhost:4200/
