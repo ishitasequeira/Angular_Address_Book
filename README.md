@@ -11,5 +11,5 @@
 5. Build the application, default build mode is production. 
 
 ## To run the application
-1. Run application server using "npm start" or "npm run start"
+1. Run application server using "ng serve"
 2. You can launch the applcation at http://localhost:4200/
