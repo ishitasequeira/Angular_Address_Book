@@ -11,21 +11,23 @@ import { ViewContactModalComponent } from '../view-contact-modal/view-contact-mo
 })
 export class ListComponent implements OnInit, OnDestroy {
   contactsList : Array<Contact>;
-  contacts$: Observable<Array<Contact>>;
+  contacts$: Observable<Array<Contact>> = this.appService.getContacts();
   @ViewChild(ViewContactModalComponent) viewContactModal;
+  
   constructor(private appService : ServiceService){
     this.list();
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.appService.refreshList$.subscribe(() => {
+      this.list();
+    });
+    this.list();
+  }
   
   list(){
-    this.contacts$ = this.appService.getContacts();
-    this.contacts$.subscribe(contacts => {
-      this.contactsList  = contacts;
-      //console.log(this.contactsList);
-      alert("load and reload");
-      // AppConstants.printData(this.contactsList);
+    this.appService.getContacts().subscribe((contacts:Array<Contact>)=>{
+      this.contactsList = contacts;
     });
   }
 
@@ -38,5 +40,9 @@ export class ListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     alert("Destroy!!!!!");
+  }
+
+  refresh(){
+
   }
 }

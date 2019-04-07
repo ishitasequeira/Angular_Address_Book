@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { NewContactModalComponent } from '../new-contact-modal/new-contact-modal.component';
+import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-nav',
@@ -9,6 +10,7 @@ import { NewContactModalComponent } from '../new-contact-modal/new-contact-modal
 export class NavComponent implements OnInit {
 
   @ViewChild(NewContactModalComponent) newContactModal;
+  @ViewChild(ListComponent) listComponent;
   constructor() { 
   }
 

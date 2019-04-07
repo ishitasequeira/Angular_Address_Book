@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, OnDestroy, ElementRef, Output, EventEmitter } from '@angular/core';
 import { AppConstants } from '../common/app-constant';
-import { Contact } from 'src/models/contact';
+import { Contact } from '../models/contact';
 import { ServiceService } from '../service/service.service';
 import { Observable } from 'rxjs';
+import { ListComponent } from '../list/list.component';
 
 @Component({
 	selector: 'app-new-contact-modal',
@@ -13,11 +14,11 @@ export class NewContactModalComponent implements OnInit {
 
 	viewModal:boolean;
 	@Input() id: string;
-	@Output() newContactEmitted = new EventEmitter<Contact>();
+	
 	msg: string = "";
 	contact: Contact = new Contact("", "", "", 0);
 
-	constructor(private serviceService: ServiceService) {
+	constructor(private serviceService: ServiceService,private listComponent: ListComponent) {
 		this.viewModal = false;
 	 }
 
@@ -34,9 +35,11 @@ export class NewContactModalComponent implements OnInit {
 		if (this.contact.phoneNumber == null || this.contact.phoneNumber == 123) {
 			msg += "PhoneNumber cannot be null!!!";
 		}
+
+		//if no fields are blank
 		if (msg == "") {
 			this.msg = msg = "";
-			alert("Primary Validations Passed");
+			//Check if phonenumber is valid or not
 			let valid: boolean = true;
 			var phoneno = /^\(?([1-9]{1}[0-9]{2})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 			if (!this.contact.phoneNumber.toString().match(phoneno)) {
@@ -52,14 +55,11 @@ export class NewContactModalComponent implements OnInit {
 					msg += "Please enter a valid email-id!"
 				}
 			}
+			//After all validations, Save the contact
 			if (valid) {
-				alert("Here");
-				let contacts$: Observable<Contact> = this.serviceService.addContact(this.contact);
-				contacts$.subscribe(contact => {
-					alert("added");
-					this.newContactEmitted.emit(contact);
-				});
+				this.serviceService.addContact(this.contact).subscribe();
 				this.closeModal("addContactModal");
+				this.contact = new Contact("","","",0)
 			}
 			this.msg = msg;
 		} else {
@@ -69,10 +69,10 @@ export class NewContactModalComponent implements OnInit {
 
 	// close modal
 	closeModal(id: string) {
-		// document.getElementById(id).style.display = "none";
 		this.viewModal = false;
 	}
 
+	//open modal
 	openModal() {
 		this.viewModal = true;
 	}
