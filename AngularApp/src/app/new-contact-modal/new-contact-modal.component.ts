@@ -12,20 +12,24 @@ import { ListComponent } from '../list/list.component';
 })
 export class NewContactModalComponent implements OnInit {
 
-	viewModal:boolean;
+	//Input
 	@Input() id: string;
-	
+
+	//Variables
+	viewModal:boolean;
 	msg: string = "";
 	contact: Contact = new Contact("", "", "", 0);
 
-	constructor(private serviceService: ServiceService,private listComponent: ListComponent) {
+	constructor(private serviceService: ServiceService) {
 		this.viewModal = false;
 	 }
 
 	ngOnInit() { }
 
+	//Method to perform validations and post data if valid
 	validateAndAddContact() {
 		let msg: string = "";
+		//check if all the fields are filled or not
 		if (this.contact.FirstName == null || this.contact.FirstName == "") {
 			msg += "Firstname cannot be null!!!";
 		}
@@ -46,6 +50,7 @@ export class NewContactModalComponent implements OnInit {
 				valid = false;
 				msg += "Please enter a 10 digit valid phone number!"
 			}
+			//Check for valid email
 			if (this.contact.email == null || this.contact.email == undefined || this.contact.email == "") {
 				this.contact.email = "";
 			} else {
@@ -55,7 +60,7 @@ export class NewContactModalComponent implements OnInit {
 					msg += "Please enter a valid email-id!"
 				}
 			}
-			//After all validations, Save the contact
+			//After all validations pass, Save the contact
 			if (valid) {
 				this.serviceService.addContact(this.contact).subscribe();
 				this.closeModal("addContactModal");

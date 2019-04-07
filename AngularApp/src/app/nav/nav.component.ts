@@ -9,19 +9,17 @@ import { ListComponent } from '../list/list.component';
 })
 export class NavComponent implements OnInit {
 
+  //Variables to point to child components
   @ViewChild(NewContactModalComponent) newContactModal;
-  @ViewChild(ListComponent) listComponent;
+  
   constructor() { 
   }
 
   ngOnInit() {
   }
 
+  //open New Contact Modal
   openModal(id: string) {
-    //document.getElementById(id).style.display = "block";
-    //alert("view");
-    //this.appService.getContactsByID($event.target.id).subscribe(contact => this.viewContactModal.contact = contact);
-    //this.newContactModal.viewModal = true;
     this.newContactModal.openModal();
   }
 

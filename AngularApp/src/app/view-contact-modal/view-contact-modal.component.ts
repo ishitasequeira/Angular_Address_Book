@@ -26,6 +26,7 @@ export class ViewContactModalComponent implements OnInit {
     this.viewModal=false;
   }
 
+  // open modal
   openModal(){
     this.viewModal = true;
   }

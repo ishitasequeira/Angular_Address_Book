@@ -2,6 +2,7 @@ import { Subject } from 'rxjs';
 import { Contact } from '../models/contact';
 
 export class AppConstants {
+    //generic constants used by other components
     public static CONTACT_SERVER_BASE_URL: string = 'http://localhost:3000';
     public static modalAddDisply: boolean = false;
     public static modalViewDisplay: Number = 0;

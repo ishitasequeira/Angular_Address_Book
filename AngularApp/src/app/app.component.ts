@@ -7,5 +7,5 @@ import { ListComponent } from './list/list.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularApp';
+  title = 'ContactApp';
 }

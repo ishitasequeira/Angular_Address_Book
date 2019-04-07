@@ -1,3 +1,4 @@
+//pojo class
 export class Contact {
     _id: Number;
     FirstName: string;
