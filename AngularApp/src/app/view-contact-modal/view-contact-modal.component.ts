@@ -3,6 +3,7 @@ import { ServiceService } from '../service/service.service';
 import { Observable } from 'rxjs';
 import { Contact } from '../models/contact';
 import { getComponentViewDefinitionFactory } from '@angular/core/src/view';
+import { AppConstants } from '../common/app-constant';
 
 @Component({
   selector: 'app-view-contact-modal',
@@ -12,24 +13,20 @@ import { getComponentViewDefinitionFactory } from '@angular/core/src/view';
 export class ViewContactModalComponent implements OnInit {
 
   contact: Contact;
-
+  viewModal: Boolean;
   constructor() { 
+    this.viewModal = false;
     this.contact = new Contact("","","",0);
   }
 
   ngOnInit() { }
 
-  // getContact(id:string){
-  //   let contacts$: Observable<Contact> = this.serviceService.getContactsByID(id);
-  //   contacts$.subscribe(contact => {
-  //     this.contact  = contact;
-  //     console.log(this.contact);
-  // //     // AppConstants.printData(this.contactsList);
-  //    });
-  //  }
-
-  // close modal
+   // close modal
   closeModal(id: string) {
-    document.getElementById(id).style.display = "none";
+    this.viewModal=false;
+  }
+
+  openModal(){
+    this.viewModal = true;
   }
 }

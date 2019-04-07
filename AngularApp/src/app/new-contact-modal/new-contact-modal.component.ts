@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ElementRef, Output, EventEmitter } from '@angular/core';
 import { AppConstants } from '../common/app-constant';
 import { Contact } from 'src/models/contact';
 import { ServiceService } from '../service/service.service';
@@ -11,11 +11,15 @@ import { Observable } from 'rxjs';
 })
 export class NewContactModalComponent implements OnInit {
 
+	viewModal:boolean;
 	@Input() id: string;
+	@Output() newContactEmitted = new EventEmitter<Contact>();
 	msg: string = "";
 	contact: Contact = new Contact("", "", "", 0);
 
-	constructor(private serviceService: ServiceService) { }
+	constructor(private serviceService: ServiceService) {
+		this.viewModal = false;
+	 }
 
 	ngOnInit() { }
 
@@ -51,8 +55,9 @@ export class NewContactModalComponent implements OnInit {
 			if (valid) {
 				alert("Here");
 				let contacts$: Observable<Contact> = this.serviceService.addContact(this.contact);
-				contacts$.subscribe(contacts => {
+				contacts$.subscribe(contact => {
 					alert("added");
+					this.newContactEmitted.emit(contact);
 				});
 				this.closeModal("addContactModal");
 			}
@@ -64,6 +69,11 @@ export class NewContactModalComponent implements OnInit {
 
 	// close modal
 	closeModal(id: string) {
-		document.getElementById(id).style.display = "none";
+		// document.getElementById(id).style.display = "none";
+		this.viewModal = false;
+	}
+
+	openModal() {
+		this.viewModal = true;
 	}
 }

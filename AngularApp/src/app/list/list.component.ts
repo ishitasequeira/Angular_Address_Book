@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Contact } from '../models/contact'
 import { ServiceService } from '../service/service.service'
 import { Observable } from 'rxjs';
@@ -9,9 +9,9 @@ import { ViewContactModalComponent } from '../view-contact-modal/view-contact-mo
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
   contactsList : Array<Contact>;
-  //
+  contacts$: Observable<Array<Contact>>;
   @ViewChild(ViewContactModalComponent) viewContactModal;
   constructor(private appService : ServiceService){
     this.list();
@@ -20,17 +20,23 @@ export class ListComponent implements OnInit {
   ngOnInit() { }
   
   list(){
-    let contacts$: Observable<Array<Contact>> = this.appService.getContacts();
-    contacts$.subscribe(contacts => {
+    this.contacts$ = this.appService.getContacts();
+    this.contacts$.subscribe(contacts => {
       this.contactsList  = contacts;
-      console.log(this.contactsList);
+      //console.log(this.contactsList);
+      alert("load and reload");
       // AppConstants.printData(this.contactsList);
     });
   }
 
-  openModal($event, modalId: string) {
+  openModal($event) {
+   // alert("view");
     this.appService.getContactsByID($event.target.id).subscribe(contact => this.viewContactModal.contact = contact);
-    document.getElementById(modalId).style.display = "block";
+    //this.viewContactModal.viewModal = true;
+    this.viewContactModal.openModal();
   }
-  
+
+  ngOnDestroy(){
+    alert("Destroy!!!!!");
+  }
 }

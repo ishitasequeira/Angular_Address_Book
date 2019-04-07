@@ -6,6 +6,5 @@ export class AppConstants {
 
     public static modalAddDisply: boolean = false;
     public static modalViewDisplay: Number = 0;
-    
-    public static contacts$: Subject<Array<Contact>> = null;
+    public static viewModal: boolean = false;
 }

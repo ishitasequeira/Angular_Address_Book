@@ -19,6 +19,7 @@ export class ServiceService {
 	getContacts(): Observable<Array<Contact>> {
 		return this.http.get<Array<Contact>>(this.contactResourceURL);
 	}
+	
 	getContactsByID(id): Observable<Contact> {
 		return this.http.get<Contact>(this.contactResourceURL+"/"+id);
 	}

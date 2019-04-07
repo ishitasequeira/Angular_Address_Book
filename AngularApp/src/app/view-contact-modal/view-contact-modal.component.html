@@ -1,14 +1,13 @@
 <!-- View Contact modal to show the view-->
-<div class="modal" id="viewContactModal">
+<div class="modal" id="viewContactModal" [style.display]="viewModal==true?'block':'none'">
   <div class="modal-content">
     <div class="modal-header">
-      <label class="viewcontact" id="first">{{contact.FirstName}}</label>
-      <label class="viewcontact" id="last"></label>
+      <label class="viewcontact" id="first">{{contact.FirstName}} </label> <label class="viewcontact" id="last">{{contact.LastName}}</label>
     </div>
     <div class="modal-body">
       <br>
-      <label>Contact:</label><label class="viewcontact" id="phoneNo"></label><br><br>
-      <label>Email-Address:</label><label class="viewcontact" id="addr"></label><br><br>
+      <label>Contact:   </label><label class="viewcontact" id="phoneNo">{{contact.PhoneNumber}}</label><br><br>
+      <label>Email-Address:  </label><label class="viewcontact" id="addr">{{contact.EmailId}}</label><br><br>
     </div>
     <input class = "pull-right" type="button" id="cancel" value="Cancel" (click)="closeModal('viewContactModal')">
   </div>
