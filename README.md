@@ -1,4 +1,4 @@
-## Assignment 9: Angular Address book/Contact app using Angular7
+## Angular Address book/Contact app using Angular7
 
 # Technologies :
   Angular 7
